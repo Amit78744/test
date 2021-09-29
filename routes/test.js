@@ -7,7 +7,7 @@ exports.testing = (req,res) =>{
 
     res.send({
         "code":res.statusCode,
-        "message":"Welcome to Hello world!!!",
+        "message":"Welcome to Hello world agin!!!",
         "isValid":true,
         status:1,
         "type":"SUCCESS"
