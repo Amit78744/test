@@ -6,7 +6,7 @@ exports.testing = (req,res) =>{
 
   var sql = "INSERT INTO user_table (name, email) VALUES ?";
       
-  con.query(sql, ["Amit", "amitambaliya5@gmail.com"] ,function (err, rows, fields) {
+  con.query(sql, ['Amit', 'amitambaliya5@gmail.com'] ,function (err, rows, fields) {
     if (!err) 
     {
         res.send({
