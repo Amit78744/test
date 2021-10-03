@@ -4,23 +4,21 @@ var con = require('./database');
 
 exports.testing = (req,res) =>{
 
-    con.query(sql, function (err, result) {
-      var sql = "INSERT INTO user_table (name, email) VALUES ?";
+  var sql = "INSERT INTO user_table (name, email) VALUES ?";
       
-        env.con.query(sql, ["Amit", "amitambaliya5@gmail.com"] ,function (err, rows, fields) {
-          if (!err) 
-          {
-              res.send({
-                "data":rows,
-                "code":res.statusCode,
-                "message":"Registered Sucessfully!!",
-                "isValid":true,
-                status:1,
-                "type":"SUCCESS"
-              });            
-          }
-        });      
-    });
+  con.query(sql, ["Amit", "amitambaliya5@gmail.com"] ,function (err, rows, fields) {
+    if (!err) 
+    {
+        res.send({
+          "data":rows,
+          "code":res.statusCode,
+          "message":"Registered Sucessfully!!",
+          "isValid":true,
+          status:1,
+          "type":"SUCCESS"
+        });            
+    }
+  });
 
     /*con.connect((err) => {
       if(!err)
@@ -50,9 +48,9 @@ exports.testing = (req,res) =>{
 
 exports.getdata = (req,res) =>{
 
-    var sql1 = "SELECT * FROM user_table";
+    var sql = "SELECT * FROM user_table";
         
-    env.con.query(sql1,function (err, rows, fields) {
+    con.query(sql,function (err, rows, fields) {
       if(!err)
       {
           res.send({
