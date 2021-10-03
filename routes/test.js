@@ -5,8 +5,9 @@ var con = require('./database');
 exports.testing = (req,res) =>{
 
   var sql = "INSERT INTO user_table (name, email) VALUES ?";
-      
-  con.query(sql, [['Amit', 'amitambaliya5@gmail.com']] ,function (err, rows, fields) {
+  var values1 = [['Amit', 'amitambaliya5@gmail.com']];
+
+  con.query(sql, [values1] ,function (err, rows, fields) {
     if (!err) 
     {
         res.send({
