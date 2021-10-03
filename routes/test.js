@@ -13,7 +13,7 @@ exports.testing = (req,res) =>{
         myDBRequest = new con.Request();
       }
     })*/
-
+ 
     var sql = "CREATE TABLE user_table(id INT AUTO_INCREMENT PRIMARY KEY , name VARCHAR(255), email VARCHAR(255))";
 
     con.query(sql, function (err, result) {
