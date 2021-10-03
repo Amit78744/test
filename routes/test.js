@@ -17,6 +17,8 @@ exports.testing = (req,res) =>{
           status:1,
           "type":"SUCCESS"
         });            
+    }else{
+      res.send(err);
     }
   });
 
@@ -61,6 +63,8 @@ exports.getdata = (req,res) =>{
             status:1,
             "type":"SUCCESS"
           });
+      }else{
+        res.send(err);
       }
     })  
 }
