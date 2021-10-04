@@ -9,7 +9,7 @@ module.exports = {
 
     fn : require('./functions/authFunction'),
     con : require('./config/database'),
-    Joi : require('joi'),
+    Joi : require('@hapi/joi'),
     stripe : require('stripe')('sk_test_VqGiTMDK2Ce9Ea2VoqtMVrAy00ieIN2TBT'),
     nodemailer : require('nodemailer'),
     Jwt : require('jsonwebtoken'),
