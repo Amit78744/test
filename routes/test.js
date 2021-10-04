@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var con = require('./database');
+var cron = require('node-cron');
+
+var trial_cron;
 
 exports.testing = (req,res) =>{
 
@@ -64,8 +67,33 @@ exports.getdata = (req,res) =>{
             status:1,
             "type":"SUCCESS"
           });
+          createCronJob();
       }else{
         res.send(err);
       }
     })  
+}
+
+var createCronJob = function() {
+
+  var days = 14;
+
+  trial_cron = cron.schedule('0 0 0 * * *', () => {
+
+    console.log('Running a job at 12:00 AM everyday');
+
+    var dayupdate_sql = "UPDATE user_table SET name=? WHERE email=?";
+    var dayupdate_values = [days,"amitambaliya5@gmail.com"];
+          
+    con.query(dayupdate_sql, dayupdate_values,function (err, rows, fields) {
+        if(!err)
+        {
+            days--;
+        }else{
+          res.send(err);
+        }
+    })              
+
+  });
+  
 }
