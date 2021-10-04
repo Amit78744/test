@@ -22,6 +22,6 @@ app.use(emailRoutes);
 
  ///////////////////////SQL Connection////////////////////////////////
   
-  app.listen(process.env.PORT_NO, function() {
-    console.log('Server is live on port ' + process.env.PORT);
+  app.listen(3000, function() {
+    console.log('Server is live on port ' + 3000);
   })
