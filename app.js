@@ -1,21 +1,27 @@
 var express = require('express');
-var router = express.Router();
 var app = express();
 const bodyparser = require('body-parser');
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
 var dotenv = require("dotenv");
-var Routes = require("./routes/routes");
-var PORT = 3000;
+var signupRoutes = require("./routes/routes");
+var emailRoutes = require("./routes/emailRoutes");
 
 dotenv.config({
   path: './.env'
 })
 
+app.use(cookieParser());
 app.use(bodyparser.json());
-app.use(Routes);
+
+// register the session with it's secret ID
+app.use(session({cookieName : 'session' ,secret: 'maidanlah' , saveUninitialized: true , resave:true}));
+
+app.use(signupRoutes);
+app.use(emailRoutes);
 
  ///////////////////////SQL Connection////////////////////////////////
   
-  app.listen(PORT, function(req,res) {
-    console.log('Server is live on port ' + PORT);
-
+  app.listen(process.env.PORT_NO, function() {
+    console.log('Server is live on port ' + process.env.PORT);
   })
