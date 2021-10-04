@@ -1,6 +1,4 @@
-const { con } = require('../constants');
 const env = require('../constants');
-const { plans_data } = require('../functions/authFunction');
 
 var otp;
 
