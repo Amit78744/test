@@ -28,6 +28,7 @@ npm install --save @hapi/joi@15.0.3
 npm install --save stripe
 npm install --save nodemailer
 npm install pm2 -g
+pm2 start app.js
 
 #start our node app in the background
 node app.js > app.out.log 2> app.err.log < /dev/null & 
