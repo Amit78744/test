@@ -12,6 +12,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # loads nvm bash_completion (node is in path now)
 
 #install node modules
+npm install
+npm start
+npm install nodemon -g
 npm install mysql
 npm install --save node-cron
 npm install --save date-and-time
