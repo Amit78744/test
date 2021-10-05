@@ -2,7 +2,7 @@ const env = require('../constants');
 
 var otp;
 
-////login existing user token
+////login Existing user token
 exports.loginUser = (req,res) =>{
 
     const data = env.Joi.object().keys({
