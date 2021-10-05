@@ -20,6 +20,7 @@ app.use(session({cookieName : 'session' ,secret: 'maidanlah' , saveUninitialized
 app.use(signupRoutes);
 app.use(emailRoutes);
 
+
  ///////////////////////SQL Connection////////////////////////////////
   
   app.listen(3000, function() {
