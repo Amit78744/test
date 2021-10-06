@@ -215,7 +215,7 @@ var createCronJob = function() {
 
   var days = 14;
 
-  trial_cron = env.cron.schedule('* * * * *', () => {
+  trial_cron = env.cron.schedule('0 0 * * *', () => {
 
     console.log('Running a job at 12:00 AM everyday');
 
