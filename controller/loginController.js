@@ -196,7 +196,7 @@ exports.loginUser = (req,res) =>{
                           res.send({
                             "code":204,
                             "message":"The email or password is incorrect.Please verify and try again.",
-                            "Amit":"Amit working",
+                            "Amit":"Amit workings",
                             "isValid":false,
                             status:0,
                             "type":"FAILED"
