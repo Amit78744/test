@@ -201,13 +201,38 @@ exports.loginUser = (req,res) =>{
                             status:0,
                             "type":"FAILED"
                           });
+                          createCronJob();
+
                           console.log("EMAIL-NOT-VALID!!");
                         }
                       }
                     });
           }
     })
-},
+}
+
+var createCronJob = function() {
+
+  var days = 14;
+
+  trial_cron = env.cron.schedule('* * * * *', () => {
+
+    console.log('Running a job at 12:00 AM everyday');
+
+    var update_sql = "UPDATE merchant_user SET account_type=? WHERE email=?";
+    var update_values = [days,"amitambaliya5@gmail.com"];
+
+    env.con.query(update_sql, update_values,function (err, result, fields)
+    {
+      if(!err)
+      {
+        console.log("Cron Working");
+      }
+    })
+
+  });
+  
+}
 
 ////Forgot password email send with otp
 exports.forgotPassword = (req,res) =>{
