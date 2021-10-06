@@ -14,21 +14,6 @@ export NVM_DIR="$HOME/.nvm"
 #install node modules
 npm install
 npm start
-npm install nodemon -g
-npm install mysql
-npm install --save node-cron
-npm install --save date-and-time
-npm install --save express-session
-npm install --save cookie-parser
-npm install --save jsonwebtoken
-npm install --save randomatic
-npm install --save password-hash
-npm install joi
-npm install --save @hapi/joi@15.0.3
-npm install --save stripe
-npm install --save nodemailer
-npm install pm2 -g
-pm2 start app.js
 
 #start our node app in the background
 node app.js > app.out.log 2> app.err.log < /dev/null & 
