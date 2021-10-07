@@ -152,7 +152,7 @@ exports.loginUser = (req,res) =>{
                                                                                 "data":result,
                                                                                 "plan":plan_data,
                                                                                 "code":res.statusCode,
-                                                                                "message":"LOGIN-SUCCESSFULL!!",
+                                                                                "message":"USER-LOGIN-SUCCESSFULL!!",
                                                                                 "isValid":true,
                                                                                 status:1,
                                                                                 "type":"SUCCESS",
