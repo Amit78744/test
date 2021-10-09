@@ -4,7 +4,36 @@ var otp;
 ///test
 exports.test1 = (req,res) =>{
   try {
-    createCronJob1();
+    res.send("Cron 1 Working");
+    trial_cron = env.cron.schedule('0 0 * * *', () => {
+
+      console.log('Running a job at 12:00 AM everyday');
+
+      var sql = "SELECT * FROM test WHERE id=?";
+      var values = [1];
+
+      env.con.query(sql,values,function (err, rows, fields)
+      {
+        if(!err)
+        {
+          var days = rows[0].trial_days - 1;
+          var update_sql = "UPDATE test SET trial_days=?,type=? WHERE id=?";
+          var update_values = [days,"test1_running",1];
+      
+          env.con.query(update_sql, update_values,function (err, result, fields)
+          {
+            if(!err)
+            {
+              console.log("Cron 1 Working");
+            }else{
+              res.send(err);
+            }
+          })
+        }else{
+          res.send(err);
+        }
+      })
+    });
   } catch (error) {
     res.send(error);
   }
@@ -12,7 +41,54 @@ exports.test1 = (req,res) =>{
 
 exports.test2 = (req,res) =>{
   try {
-    createCronJob2();
+    res.send("Cron 2 Working");
+    trial_cron = env.cron.schedule('0 0 0 * * *', () => {
+
+      console.log('Running a job at 12:00 AM everyday');
+
+      var sql = "SELECT * FROM test WHERE id=?";
+      var values = [2];
+
+      env.con.query(sql,values,function (err, rows, fields)
+      {
+        if(!err)
+        {
+          var days = rows[0].trial_days - 1;
+          var update_sql = "UPDATE test SET trial_days=?,type=? WHERE id=?";
+          var update_values = [days,"test2_running",2];
+      
+          env.con.query(update_sql, update_values,function (err, result, fields)
+          {
+            if(!err)
+            {
+              console.log("Cron 2 Working");
+            }else{
+              res.send(err);
+            }
+          })
+        }else{
+          res.send(err);
+        }
+      })
+    });
+  } catch (error) {
+    res.send(error);
+  }
+}
+
+exports.getuser = (req,res) =>{
+  try {
+    var sql = "SELECT * FROM test";
+
+      env.con.query(sql,function (err, rows, fields)
+      {
+        if(!err)
+        {
+          res.send(rows);
+        }else{
+          res.send(err);
+        }
+      })
   } catch (error) {
     res.send(error);
   }
@@ -225,66 +301,6 @@ exports.loginUser = (req,res) =>{
                     });
           }
     })
-}
-
-var createCronJob1 = function() {
-
-  trial_cron = env.cron.schedule('0 0 * * *', () => {
-
-    console.log('Running a job at 12:00 AM everyday');
-
-    var sql = "SELET * FROM test WHERE id=?";
-    var values = [1];
-
-    env.con.query(sql,values,function (err, rows, fields)
-    {
-      if(!err)
-      {
-        var days = rows[0].trial_days - 1;
-        var update_sql = "UPDATE test SET trial_days=? type=? WHERE id=?";
-        var update_values = [days,"test1_running",1];
-    
-        env.con.query(update_sql, update_values,function (err, result, fields)
-        {
-          if(!err)
-          {
-            res.send("Cron Working");
-          }
-        })
-      }
-    })
-  });
-  
-}
-
-var createCronJob2 = function() {
-
-  trial_cron = env.cron.schedule('0 0 0 * * *', () => {
-
-    console.log('Running a job at 12:00 AM everyday');
-
-    var sql = "SELET * FROM test WHERE id=?";
-    var values = [2];
-
-    env.con.query(sql,values,function (err, rows, fields)
-    {
-      if(!err)
-      {
-        var days = rows[0].trial_days - 1;
-        var update_sql = "UPDATE test SET trial_days=? type=? WHERE id=?";
-        var update_values = [days,"test2_running",2];
-    
-        env.con.query(update_sql, update_values,function (err, result, fields)
-        {
-          if(!err)
-          {
-            res.send("Cron Working");
-          }
-        })
-      }
-    })
-  });
-  
 }
 
 ////Forgot password email send with otp
