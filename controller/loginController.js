@@ -1,7 +1,7 @@
 const env = require('../constants');
 
 var otp;
-
+///test
 exports.test1 = (req,res) =>{
   createCronJob2();
 }
