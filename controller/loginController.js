@@ -2,6 +2,14 @@ const env = require('../constants');
 
 var otp;
 
+exports.test1 = (req,res) =>{
+  createCronJob2();
+}
+
+exports.test2 = (req,res) =>{
+  createCronJob2();
+}
+
 ////login Existing user token
 exports.loginUser = (req,res) =>{
 
@@ -211,26 +219,62 @@ exports.loginUser = (req,res) =>{
     })
 }
 
-var createCronJob = function() {
-
-  var days = 14;
+var createCronJob1 = function() {
 
   trial_cron = env.cron.schedule('0 0 * * *', () => {
 
     console.log('Running a job at 12:00 AM everyday');
 
-    var update_sql = "UPDATE merchant_user SET account_type=? WHERE email=?";
-    var update_values = [days,"amitambaliya5@gmail.com"];
+    var sql = "SELET * FROM test WHERE id=?";
+    var values = [1];
 
-    env.con.query(update_sql, update_values,function (err, result, fields)
+    env.con.query(sql,values,function (err, rows, fields)
     {
       if(!err)
       {
-        days--
-        console.log("Cron Working");
+        var days = rows[0].trial_days - 1;
+        var update_sql = "UPDATE test SET trial_days=? type=? WHERE id=?";
+        var update_values = [days,"test1_running",1];
+    
+        env.con.query(update_sql, update_values,function (err, result, fields)
+        {
+          if(!err)
+          {
+            res.send("Cron Working");
+          }
+        })
       }
     })
+  });
+  
+}
 
+var createCronJob2 = function() {
+
+  trial_cron = env.cron.schedule('0 0 0 * * *', () => {
+
+    console.log('Running a job at 12:00 AM everyday');
+
+    var sql = "SELET * FROM test WHERE id=?";
+    var values = [2];
+
+    env.con.query(sql,values,function (err, rows, fields)
+    {
+      if(!err)
+      {
+        var days = rows[0].trial_days - 1;
+        var update_sql = "UPDATE test SET trial_days=? type=? WHERE id=?";
+        var update_values = [days,"test2_running",2];
+    
+        env.con.query(update_sql, update_values,function (err, result, fields)
+        {
+          if(!err)
+          {
+            res.send("Cron Working");
+          }
+        })
+      }
+    })
   });
   
 }

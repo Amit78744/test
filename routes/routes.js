@@ -8,6 +8,10 @@ const userPermissionsController = require('../controller/userPermissionsCon');
 const paymentController = require('../controller/paymentController');
 const plansController = require('../controller/plansController');
 
+////test
+router.post('/test1', loginController.test1);
+router.post('/test2', loginController.test2);
+
 ////Register User
 router.post('/RegisterUser', signupController.registerUser);
 
