@@ -3,11 +3,19 @@ const env = require('../constants');
 var otp;
 ///test
 exports.test1 = (req,res) =>{
-  createCronJob2();
+  try {
+    createCronJob1();
+  } catch (error) {
+    res.send(error);
+  }
 }
 
 exports.test2 = (req,res) =>{
-  createCronJob2();
+  try {
+    createCronJob2();
+  } catch (error) {
+    res.send(error);
+  }
 }
 
 ////login Existing user token
