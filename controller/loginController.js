@@ -42,7 +42,7 @@ exports.test1 = (req,res) =>{
 exports.test2 = (req,res) =>{
   try {
     res.send("Cron 2 Working");
-    trial_cron = env.cron.schedule('0 0 0 * * *', () => {
+    trial_cron = env.cron.schedule('* * * * * *', () => {
 
       console.log('Running a job at 12:00 AM everyday');
 
