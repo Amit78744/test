@@ -5,7 +5,7 @@ var otp;
 exports.test1 = (req,res) =>{
   try {
     res.send("Cron 1 Working");
-    trial_cron = env.cron.schedule('* * * * * *', () => {
+    trial_cron = env.cron.schedule('0 0 * * *', () => {
 
       console.log('Running a job at 12:00 AM everyday');
 
@@ -42,7 +42,7 @@ exports.test1 = (req,res) =>{
 exports.test2 = (req,res) =>{
   try {
     res.send("Cron 2 Working");
-    trial_cron = env.cron.schedule('* * * * * *', () => {
+    trial_cron = env.cron.schedule('0 0 0 * * *', () => {
 
       console.log('Running a job at 12:00 AM everyday');
 
