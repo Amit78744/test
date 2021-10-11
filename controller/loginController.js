@@ -17,8 +17,8 @@ exports.test1 = (req,res) =>{
         if(!err)
         {
           var days = rows[0].trial_days - 1;
-          var update_sql = "UPDATE test SET trial_days=?,type=? WHERE id=?";
-          var update_values = [days,"test1_running",1];
+          var update_sql = "UPDATE test SET trial_days=?,type=?,updated_at=? WHERE id=?";
+          var update_values = [days,"test1_running",1,env.fn.getTime()];
       
           env.con.query(update_sql, update_values,function (err, result, fields)
           {
@@ -54,8 +54,8 @@ exports.test2 = (req,res) =>{
         if(!err)
         {
           var days = rows[0].trial_days - 1;
-          var update_sql = "UPDATE test SET trial_days=?,type=? WHERE id=?";
-          var update_values = [days,"test2_running",2];
+          var update_sql = "UPDATE test SET trial_days=?,type=?,updated_at=? WHERE id=?";
+          var update_values = [days,"test2_running",2,env.fn.getTime()];
       
           env.con.query(update_sql, update_values,function (err, result, fields)
           {
