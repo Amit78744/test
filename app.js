@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var dotenv = require("dotenv");
 var signupRoutes = require("./routes/routes");
 var emailRoutes = require("./routes/emailRoutes");
+const cors = require('cors');
 
 dotenv.config({
   path: './.env'
@@ -26,6 +27,10 @@ app.use(function(req,res,next) {
 
   next();
 });
+
+app.use(cors({
+  origin: '*'
+}));
 
 app.use(signupRoutes);
 app.use(emailRoutes);
