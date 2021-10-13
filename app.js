@@ -11,6 +11,16 @@ dotenv.config({
   path: './.env'
 })
 
+app.use(function(req,res,next) {
+  res.header('Access-Control-Allow-Origin: *');
+  res.header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS, post, get');
+  res.header("Access-Control-Max-Age", "3600");
+  res.header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Accept, Authorization');
+  res.header("Access-Control-Allow-Credentials", "true");
+
+  next();
+});
+
 app.use(cookieParser());
 app.use(bodyparser.json());
 
