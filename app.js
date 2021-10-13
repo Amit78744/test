@@ -11,6 +11,12 @@ dotenv.config({
   path: './.env'
 })
 
+app.use(cookieParser());
+app.use(bodyparser.json());
+
+// register the session with it's secret ID
+app.use(session({cookieName : 'session' ,secret: 'maidanlah' , saveUninitialized: true , resave:true}));
+
 app.use(function(req,res,next) {
   res.header('Access-Control-Allow-Origin: *');
   res.header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS, post, get');
@@ -20,12 +26,6 @@ app.use(function(req,res,next) {
 
   next();
 });
-
-app.use(cookieParser());
-app.use(bodyparser.json());
-
-// register the session with it's secret ID
-app.use(session({cookieName : 'session' ,secret: 'maidanlah' , saveUninitialized: true , resave:true}));
 
 app.use(signupRoutes);
 app.use(emailRoutes);
