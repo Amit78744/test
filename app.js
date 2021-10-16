@@ -38,6 +38,6 @@ app.use(emailRoutes);
 
  ///////////////////////SQL Connection////////////////////////////////
   
-  app.listen(6000, function() {
-    console.log('Server is live on port ' + 6000);
+  app.listen(3000, function() {
+    console.log('Server is live on port ' + 3000);
   })
