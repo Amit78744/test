@@ -169,6 +169,14 @@ exports.loginUser = (req,res) =>{
                                                       {
                                                             console.log("LOGIN-SUCCESSFULL!!");
 
+                                                            //console.log(calcTime('Europe/Rome','+2.00'));
+
+                                                            const nDate = new Date().toISOString('en-US', {
+                                                              timeZone: 'Asia/Calcutta'
+                                                            });
+
+                                                            console.log(nDate);
+
                                                             if(result[0].user_role == "sub-user")
                                                             {
                                                                 var sql2 = "SELECT * FROM sub_user WHERE email = ?";
@@ -531,4 +539,11 @@ exports.resetPassword = (req,res) =>{
               }
           }
     })
+}
+
+var calcTime = function(city,offset){
+  var b = new Date();
+  var utc = b.getTime()+(b.getTimezoneOffset()*60000);
+  var nd = new Date(utc+(3600000*offset));
+  return "Time is : "+ city + " is "+nd.toLocaleString();
 }
