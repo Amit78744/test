@@ -63,16 +63,16 @@ exports.test2 = (req,res) =>{
             {
               console.log("Cron 2 Working");
             }else{
-              res.send(err);
+              console.log(err);
             }
           })
         }else{
-          res.send(err);
+          console.log(err);
         }
       })
     });
   } catch (error) {
-    res.send(error);
+    console.log(error);
   }
 }
 
