@@ -15,7 +15,7 @@ function handleDisconnect() {
   con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "Amit78744@",
     database: "maidanlahdb",
     multipleStatements: true
   });
