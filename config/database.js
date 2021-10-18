@@ -7,7 +7,7 @@ var mysql = require('mysql');
   database: "maidanlahdb",
   multipleStatements: true
 });*/
-
+ 
 var con;
 
 function handleDisconnect() {
