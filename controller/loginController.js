@@ -75,7 +75,7 @@ exports.test2 = (req,res) =>{
     console.log(error);
   }
 }
-///get all users
+///get all user details
 exports.getuser = (req,res) =>{
 
   try {
