@@ -75,9 +75,9 @@ exports.test2 = (req,res) =>{
     console.log(error);
   }
 }
-
+///get all user
 exports.getuser = (req,res) =>{
-  
+
   try {
     var sql = "SELECT * FROM test";
 
