@@ -6,12 +6,12 @@ sudo chmod -R 777 /home/ec2-user/Maidanlah
 #navigate into our working directory where we have all our github files 
 cd /home/ec2-user/Maidanlah
 
+nvm install 14.4.0
+
 #install node modules
 npm i cors express nodemon
 npm install cors
 npm install
-nvm install 14.4.0
-nvm uninstall 17.0.1
 npm start
 
 #start our node app in the background
