@@ -38,7 +38,7 @@ exports.test1 = (req,res) =>{
     res.send(error);
   }
 }
-
+//
 exports.test2 = (req,res) =>{
   try {
     res.send("Cron 2 Working");
