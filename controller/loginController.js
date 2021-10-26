@@ -26,19 +26,19 @@ exports.test1 = (req,res) =>{
             {
               console.log("Cron 1 Working");
             }else{
-              res.send(err);
+              console.log(err);
             }
           })
         }else{
-          res.send(err);
+          console.log(err);
         }
       })
     });
   } catch (error) {
-    res.send(error);
+    console.log(error);
   }
 }
-//
+
 exports.test2 = (req,res) =>{
   try {
     res.send("Cron 2 Working");
@@ -75,6 +75,7 @@ exports.test2 = (req,res) =>{
     console.log(error);
   }
 }
+
 ///get all user details
 exports.getuser = (req,res) =>{
 
