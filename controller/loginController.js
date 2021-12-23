@@ -177,7 +177,10 @@ exports.loginUser = (req,res) =>{
                                                               timeZone: 'Asia/Calcutta'
                                                             });
 
-                                                            console.log(nDate);
+                                                            const date = new Date();
+                                                            const offset = date.getTimezoneOffset();
+
+                                                            console.log(offset);
 
                                                             if(result[0].user_role == "sub-user")
                                                             {
