@@ -12,7 +12,7 @@ var con;
 
 function handleDisconnect() {
   
-  con = mysql.createConnection({
+  con = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "Amit78744@",
@@ -20,15 +20,16 @@ function handleDisconnect() {
     multipleStatements: true
   });
 
-  con.connect(function(err) {              
-    if(err) {                                    
-      console.log('error when connecting to db:', err);
-      setTimeout(handleDisconnect, 2000); 
-    }
-    else{
-      console.log("Db Connected!");
-      return con;
-    }                                   
+  con.on('connection', function (connection) {
+    console.log('DB Connection established');
+  
+    connection.on('error', function (err) {
+      console.error(new Date(), 'MySQL error', err);
+    });
+    connection.on('close', function (err) {
+      console.error(new Date(), 'MySQL close', err);
+    });
+  
   });                                   
 
   con.on('error', function(err) {
