@@ -173,15 +173,15 @@ exports.loginUser = (req,res) =>{
 
                                                             //console.log(calcTime('Europe/Rome','+2.00'));
 
-                                                            const nDate = new Date().toISOString('en-US', {
-                                                              timeZone: 'Asia/Calcutta'
-                                                            });
+                                                            // const nDate = new Date().toISOString('en-US', {
+                                                            //   timeZone: 'Asia/Calcutta'
+                                                            // });
 
-                                                            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                                                            console.log(timezone);
+                                                            // const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                                                            // console.log(timezone);
 
                                                             console.log(env.fn.getTime());
-                                                            
+
                                                             if(result[0].user_role == "sub-user")
                                                             {
                                                                 var sql2 = "SELECT * FROM sub_user WHERE email = ?";
