@@ -180,6 +180,8 @@ exports.loginUser = (req,res) =>{
                                                             const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
                                                             console.log(timezone);
 
+                                                            console.log(env.fn.getTime());
+                                                            
                                                             if(result[0].user_role == "sub-user")
                                                             {
                                                                 var sql2 = "SELECT * FROM sub_user WHERE email = ?";
